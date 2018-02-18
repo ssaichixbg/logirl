@@ -1,0 +1,63 @@
+@import "bs_functions";
+
+@include media-breakpoint-only(xs) {
+  h2 {
+    font-size: 1.4rem;
+  }
+  h6 {
+    font-size: 0.7rem;
+  }
+  .detail-col {
+    font-size: 0.9rem;
+  }
+}
+
+.slider-for {
+  img {
+   // height: 400px;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+  .img-container {
+    //height: 400px;
+    width: 100%;
+    min-height: 200px;
+  }
+
+}
+
+.slider-nav {
+  width: 70%;
+  margin: auto;
+  img {
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+  .img-container {
+    height: 60px;
+    width: 80px;
+    //background: #ccc;
+    margin: 5px;
+  }
+}
+
+.slick-prev:before, .slick-next:before {
+    color: theme-color("primary") !important;
+}
+.slick-prev {
+    margin-left: 2px;
+  }
+
+.slick-next {
+  margin-right: 2px;
+}
+
+.slick-slide, .slick-loading {
+  background: url('https://cdn.bootcss.com/slick-carousel/1.8.1/ajax-loader.gif') no-repeat top;
+}

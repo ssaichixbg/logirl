@@ -1,0 +1,36 @@
+<div class="col-12 col-sm-6 col-lg-4 mt-3">
+  <div class="card item">
+    <div class="card-body pb-2">
+      <h4 class="card-title text-center border-bottom py-1" ><a href="{{ item.display_name.href }}">{{ item.display_name.text }}</a></h4>
+      <p class="card-subtitle text-muted text-center">{{ item.subtitle }}</p>
+    </div>
+    <img class="img-thumbnail rounded mx-auto d-block" src="{{ item.image_url }}" alt="image">
+    <small class="text-center text-muted my-2 mx-4">由 {{ item.contributor_name }} 贡献</small>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-5">
+            <ul class="list-inline">
+              <li class="list-inline-item"><b>类别</b></li>
+              <li class="list-inline-item text-center"><a href="{{ item.type.href }}">{{ item.type.text }}</a></li>
+            </ul>
+          </div>
+          <div class="col-7">
+            <ul class="list-inline">
+              <li class="list-inline-item"><b>时间</b></li>
+              <li class="list-inline-item text-center text-muted">{{ item.date }}</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <ul class="list-inline">
+          <li class="list-inline-item"><b>牌子</b></li>
+          <li class="list-inline-item text-center text-muted"><a href="{{ item.brand.href }}">{{ item.brand.text }}</a></li>
+        </ul>
+        </li>
+    </ul>
+  {#        <footer class="blockquote-footer">123</footer>#}
+  </div>
+</div>

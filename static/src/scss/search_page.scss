@@ -1,0 +1,13 @@
+@import "bs_functions";
+
+@include media-breakpoint-only(xs) {
+  .search-bar {
+    top: 0;
+    padding: 0.5rem 0;
+    position:  -webkit-sticky !important;
+    position: sticky !important;
+    z-index: 999;
+    background: #fff;
+    border-bottom: 1px #eee solid;
+  }
+}

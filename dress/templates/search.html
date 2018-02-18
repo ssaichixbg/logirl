@@ -1,0 +1,21 @@
+{% extends 'dress_base.html' %}
+
+{% block body %}
+  {% include 'components/search_bar.html' %}
+  <div class="row" id="search-result">
+    {% for item in items %}
+        {% include 'components/sesrch_item_card.html' %}
+    {% endfor %}
+  </div>
+  <div class="row justify-content-center m-2">
+    <div class="col-auto"><button class="btn btn-outline-primary">加载更多</button></div>
+  </div>
+{% endblock %}
+
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/search_page.css' %}">
+{% endblock %}
+{% block footer %}
+<script src="{% static 'js/search_page.js' %}"></script>
+{% endblock %}

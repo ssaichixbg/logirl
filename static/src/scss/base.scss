@@ -1,0 +1,30 @@
+@import "bs_functions";
+
+@include media-breakpoint-only(xs) {
+  .header-logo {
+    height: 100px !important;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+}
+
+.position-sticky {
+  top: 3rem;
+  position:  -webkit-sticky !important;
+}
+
+.header-logo {
+  height: 150px;
+}
+
+.main {
+  margin-top: 15px;
+}
+
+.item {
+  .img-thumbnail {
+    width: 60%;
+  }
+}

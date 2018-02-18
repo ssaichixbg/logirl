@@ -1,0 +1,10 @@
+{% extends 'dress_base.html' %}
+
+{% block body %}
+<div class="row" id="brand-result">
+  {% for brand in brands %}
+      {% include 'components/brand_card.html' %}
+  {% endfor %}
+</div>
+
+{% endblock %}

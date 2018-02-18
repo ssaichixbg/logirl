@@ -1,0 +1,86 @@
+<div class="row search-bar">
+  <div class="col">
+    <form href="./" type="GET">
+      <div class="row no-gutters justify-content-end">
+        <div class="col-12 col-sm">
+          <div class="input-group">
+            <input type="text" class="form-control" id="kw" name="kw" placeholder="快搜索小裙子吧" value="{% if form_data.kw %}{{ form_data.kw }}{% endif %}">
+            <div class="input-group-append">
+              <button class="btn btn-primary px-4" type="submit">搜索</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="dropdown">
+            <button class="btn btn-link dropdown-toggle pb-0 text-center" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    data-tooltip="true" data-placement="top" title="当前排序：{{ form_data.order_display_name }}">
+              排序
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {% for option in order_display_names %}
+                <a class="order-option dropdown-item {% if form_data.order == option.0 %}active{% endif %}" data-type="{{ option.0 }}" href="#">{{ option.1 }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <a class="btn btn-link pr-sm-0 pb-0" data-toggle="collapse" href="#advanceSearch" role="button"
+             aria-expanded="false" aria-controls="advanceSearch" data-tooltip="true" data-placement="top" title="开启高级搜索">十级搜索</a>
+        </div>
+      </div>
+      <div class="collapse mt-3 {% if form_data.show_advance_search %}show{% endif %}" id="advanceSearch">
+        <div class="form-group">
+          <label for="">类型：</label>
+          {% for type in searchbar.item_types %}
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"
+                   {% if type.0|slugify == form_data.type or type.0|slugify in form_data.type  %}checked{% endif %}
+                   name="type" id="itemTypeCheckbox{{ forloop.counter0 }}" value="{{ type.0 }}">
+            <label class="form-check-label" for="itemTypeCheckbox{{ forloop.counter0 }}">{{ type.1 }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          <label for="">颜色：</label>
+          {% for color in searchbar.colors %}
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"
+                   {% if color.pk|slugify == form_data.color or color.pk|slugify in form_data.color  %}checked{% endif %}
+                   name="color" id="colorCheckbox{{ forloop.counter0 }}" value="{{ color.pk }}">
+            <label class="form-check-label" for="colorCheckbox{{ forloop.counter0 }}">{{ color.display_name }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          <label for="">版型：</label>
+          {% for feature in searchbar.features %}
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"
+                   {% if feature.pk|slugify == form_data.feature or feature.pk|slugify in form_data.feature  %}checked{% endif %}
+                   name="feature" id="featureCheckbox{{ forloop.counter0 }}" value="{{ feature.pk }}">
+            <label class="form-check-label" for="featureCheckbox{{ forloop.counter0 }}">{{ feature.display_name }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="form-group row">
+          <label for="brandSelect" class="col-form-label col-auto">店铺:</label>
+          <select id="brandSelect" name="brand" class="form-control col-4">
+            <option value="" {% if not form_data.brand %}selected{% endif %}>选择</option>
+            {% for brand in searchbar.brands %}
+              <option value="{{ brand.pk }}" {% if brand.pk|slugify == form_data.brand %}selected{% endif %}>{{ brand.display_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group row">
+          <div class="col-auto">
+            <button class="btn btn-outline-primary" type="submit">确定</button>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-outline-warning">清空</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

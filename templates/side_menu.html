@@ -1,0 +1,5 @@
+<nav class="nav nav-pills flex-column position-sticky">
+  {% for nav in nav_views %}
+  <a class="nav-link {% if nav.view_name == view_name %}active{% endif %}" href="{% url nav.view_name %}">{{ nav.nav_title }}</a>
+{% endfor %}
+</nav>

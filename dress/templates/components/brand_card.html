@@ -1,0 +1,29 @@
+<div class="col-6 col-sm-4 col-lg-3 mt-3">
+  <div class="card item">
+    <div class="card-body pt-2 pb-0 mt-0">
+      <h6 class="text-center border-bottom py-1 mb-0" ><a href="{% url 'home' %}?brand={{ brand.pk }}">{{ brand.display_name }}</a></h6>
+      <p class="text-muted text-center pt-1 pb-0 mb-0">{{ brand.abbr }}</p>
+    </div>
+    <img class="img-thumbnail border-0 rounded mx-auto d-block" src="{{ brand.image.url }}" alt="image">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <ul class="list-inline">
+          <li class="list-inline-item"><b>总数</b></li>
+          <li class="list-inline-item text-center text-muted"><a href="#">{{ brand.item_count }}</a></li>
+        </ul>
+      </li>
+      <li class="list-group-item">
+        <ul class="list-inline">
+          {% if brand.url %}
+            <li class="list-inline-item"><a class="text-center" href="{{ brand.url }}" target="_blank">官网</a></li>
+          {% endif %}
+          {% if brand.weibo %}
+            <li class="list-inline-item"><a class="text-center" href="{{ brand.weibo }}" target="_blank">微博</a></li>
+         {% endif %}
+        </ul>
+      </li>
+
+    </ul>
+  {#        <footer class="blockquote-footer">123</footer>#}
+  </div>
+</div>

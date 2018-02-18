@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% if meta and meta.title %}{{ meta.title }}  |  {% endif %}Lo娘百科</title>
+  {% include 'common_header.html' %}
+  {% block header %} {% endblock %}
+</head>
+<body>
+<div class="top-bar d-sm-none mb-3">
+  <nav class="navbar navbar-light bg-white">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <div class="collapse" id="topNavBar">
+    <div class="bg-light p-4">
+      {% include "side_menu.html" %}
+    </div>
+  </div>
+
+</div>
+<nav class="container header-logo">
+  <a href="{% url 'home' %}"><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=293710416,2115331919&fm=27&gp=0.jpg" class="rounded mx-auto d-block h-100" alt="logo">
+  </a>
+</nav>
+<div class="container main">
+  <div class="row">
+    <div class="col-0 col-sm-2 px-1 px-md-2 pt-0 d-none d-sm-block">
+      {% include "side_menu.html" %}
+    </div>
+    <div class="col col-sm-10">
+      {% block body %} {% endblock %}
+    </div>
+  </div>
+
+</div>
+{% include 'common_footer.html' %}
+{% block footer %}{% endblock %}
+</body>
+</html>

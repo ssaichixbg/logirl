@@ -1,0 +1,68 @@
+{% extends 'dress_base.html' %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-white py-0 px-0">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">主页</a></li>
+    <li class="breadcrumb-item"><a href="#">MILK</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ribbon Babydoll JSK</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col">
+    <h2 class="text-center text-primary">Ribbon Babydoll JSK (Lace)</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h6 class="text-muted text-center">リボン付きベビードールジャンパースカート（総レース）</h6>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10 col-md-4 ">
+    <div class="slider-for">
+      {% for i in images %}
+        <div class="img-container">
+         <img class="img-thumbnail rounded" data-lazy="{{ i }}"/>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="slider-nav">
+      {% for i in images %}
+        <div class="img-container">
+          <img data-lazy="{{ i }}"/>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-12 col-md-7 detail-col">
+    <ul class="list-group list-group-flush border">
+      {% for entry in details %}
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4 col-lg-3 pr-0"><b>{{ entry.key }}</b></div>
+          <div class="col-8 col-lg-9">
+            {% if entry.a %}
+              {% for a in entry.a %}
+              <a href="{{ a.href }}">{{ a.text }}</a>
+              {% endfor %}
+            {% endif %}
+            {% if entry.text %} {{ entry.text | linebreaksbr}} {% endif %}
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% load static %}
+{% block header %}
+<link href="https://cdn.bootcss.com/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/item_detail.css' %}">
+{% endblock %}
+{% block footer %}
+<script src="{% static 'js/item_detail.js' %}"></script>
+{% endblock %}
