@@ -9,7 +9,7 @@ from django.views.generic.list import MultipleObjectMixin
 from utils.decorator import *
 import utils.html_tag as tag
 
-import models
+import dress.models as models
 
 
 class BaseView(TemplateView):
