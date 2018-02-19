@@ -1,0 +1,5 @@
+django==1.11.1
+celery[redis]
+Pillow
+gevent
+django-db-geventpool
