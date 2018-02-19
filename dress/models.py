@@ -12,7 +12,7 @@ class DressBaseModel(models.Model):
         abstract = True  # Set this model as Abstract
 
     def __str__(self):
-        return self.__getattribute__('display_name').encode('utf-8')
+        return self.__getattribute__('display_name')
 
 
 BrandFlags = (
