@@ -1,3 +1,4 @@
+django-aliyun-oss
 django==1.11.1
 celery[redis]
 Pillow
