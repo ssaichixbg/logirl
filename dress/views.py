@@ -5,6 +5,7 @@ import inspect
 from django.http import Http404
 from django.views.generic import TemplateView
 from django.views.generic.list import MultipleObjectMixin
+from django.core.urlresolvers import reverse
 
 from utils.decorator import *
 import utils.html_tag as tag
@@ -54,7 +55,7 @@ class SearchResultView(BaseView):
         @staticmethod
         def mock(i):
             item = SearchResultView.Item()
-            item.display_name = tag.a('标题 ' + str(i))
+            item.display_name = tag.a('标题 ' + str(i), href=reverse(ItemDetail.view_name))
             item.subtitle = '副标题 12345' + str(i)
             item.image_url = 'https://images.lolibrary.org/file/lolibrary-images/4e97eb15-6d11-4f45-bd12-272d53e3fc4a_thumb.jpeg'
             item.contributor_name = 'XXX'
