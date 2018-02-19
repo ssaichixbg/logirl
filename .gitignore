@@ -103,6 +103,7 @@ ENV/
 .idea/
 
 static/css/
+static/js/
 
 media/
 

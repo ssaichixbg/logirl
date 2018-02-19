@@ -3,3 +3,4 @@ celery[redis]
 Pillow
 gevent
 django-db-geventpool
+uwsgi
