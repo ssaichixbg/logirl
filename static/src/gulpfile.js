@@ -1,13 +1,11 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minify = require('gulp-minify');
-var cleanCss = require('gulp-clean-css');
 var shell = require('gulp-shell');
 
 gulp.task('styles', function() {
     gulp.src('scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(cleanCss())
         .pipe(gulp.dest('../css/'));
 });
 
