@@ -23,8 +23,9 @@ function loadMore(callback) {
   $.ajax({
     url: replaceCurrentURLParam('page', searchPage + 1, '/search'),
     success: function (result) {
+      // no more results
       if (result === '') {
-        $loadMoreBtn.fadeOut();
+        $loadMoreBtn.hide();
         $('.no-more').fadeIn();
       }
       else {
@@ -69,9 +70,11 @@ $(function() {
 
   // enable tooltip
   (function () {
-     $('[data-tooltip="true"]').tooltip({
-       trigger: 'hover'
-     });
+    if (clickEvent !== 'click') { return; }
+
+    $('[data-tooltip="true"]').tooltip({
+     trigger: 'hover'
+    });
   })();
 
   // bind events
