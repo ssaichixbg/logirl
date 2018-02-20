@@ -79,7 +79,7 @@ class SearchResultView(BaseView):
     @GET
     def items(self, kw='', order='-time', brand=None, feature=None, tag=None, type=None, color=None, page=0):
         r = [SearchResultView.Item.mock(i) for i in range(int(page) * 10, 10 + int(page) * 10)]
-        return r if int(padge) <= 2 else []
+        return r if int(page) <= 2 else []
 
     @property
     @GET
