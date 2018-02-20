@@ -1,5 +1,9 @@
 @import "bs_functions";
 
+.opacity-0 {
+  opacity: 0;
+}
+
 @include media-breakpoint-only(xs) {
   .header-logo {
     height: 100px !important;
@@ -7,6 +11,14 @@
 
   .breadcrumb {
     font-size: 0.8rem;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .item {
+    .img-thumbnail {
+      height: 220px !important;
+    }
   }
 }
 
@@ -25,6 +37,6 @@
 
 .item {
   .img-thumbnail {
-    width: 60%;
+    height: 260px;
   }
 }

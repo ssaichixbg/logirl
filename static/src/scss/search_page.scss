@@ -1,4 +1,5 @@
 @import "bs_functions";
+@import "mixins";
 
 @include media-breakpoint-only(xs) {
   .search-bar {
@@ -10,4 +11,8 @@
     background: #fff;
     border-bottom: 1px #eee solid;
   }
+}
+
+.item {
+  @include transition(all .3s ease);
 }

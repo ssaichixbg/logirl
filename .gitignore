@@ -107,4 +107,6 @@ static/js/
 
 media/
 
+.DS_Store
+
 static/src/node_modules/

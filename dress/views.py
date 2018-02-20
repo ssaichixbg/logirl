@@ -42,6 +42,8 @@ class SearchResultView(BaseView):
 
     view_name = 'search_result'
 
+    template_name = 'search_result.html'
+
     class Item():
         def __init__(self):
             self.display_name = tag.a()
@@ -76,9 +78,8 @@ class SearchResultView(BaseView):
     @property
     @GET
     def items(self, kw='', order='-time', brand=None, feature=None, tag=None, type=None, color=None, page=0):
-
-        r = [SearchResultView.Item.mock(i) for i in range(10 + page * 10)]
-        return r
+        r = [SearchResultView.Item.mock(i) for i in range(int(page) * 10, 10 + int(page) * 10)]
+        return r if int(padge) <= 2 else []
 
     @property
     @GET

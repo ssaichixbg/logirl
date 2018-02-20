@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^donation', dress.views.DonationView.as_view(), name=dress.views.DonationView.view_name),
     url(r'^brand/', dress.views.BrandListView.as_view(), name=dress.views.BrandListView.view_name),
     url(r'^brand/type/(?P<brand_type>d+)', dress.views.BrandListView.as_view(), name=dress.views.BrandListView.view_name),
-
+    url(r'^search$', dress.views.SearchResultView.as_view(), name=dress.views.SearchResultView.view_name),
     url(r'^$', dress.views.HomeView.as_view(), name=dress.views.HomeView.view_name),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

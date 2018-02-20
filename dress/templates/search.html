@@ -7,8 +7,21 @@
         {% include 'components/sesrch_item_card.html' %}
     {% endfor %}
   </div>
-  <div class="row justify-content-center m-2">
-    <div class="col-auto"><button class="btn btn-outline-primary">加载更多</button></div>
+  <div class="row justify-content-center m-3">
+    <div class="col-auto">
+      <button class="btn btn-outline-primary ladda-button load-more-btn mt-2"
+              data-spinner-color = "black"
+              data-style="expand-right"><span class="ladda-label">加载更多</span></button>
+      <div class="alert alert-warning no-more" role="alert" style="display: none">
+        没有更多了...(｡•ˇ‸ˇ•｡) ...
+      </div>
+    </div>
+    <div class="w-100 my-2"></div>
+    <div class="col-auto">
+      <div class="alert alert-warning net-error" role="alert" style="display: none;">
+        网络错误...(｡•ˇ‸ˇ•｡) ...
+      </div>
+    </div>
   </div>
 {% endblock %}
 

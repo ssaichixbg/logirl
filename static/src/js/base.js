@@ -1,7 +1,8 @@
 $(function() {
+    // sticky init
     (function () {
-        var elements = $('.position-sticky');
-        Stickyfill.add(elements);
+      var elements = $('.position-sticky');
+      Stickyfill.add(elements);
     })();
 });
 
@@ -12,7 +13,7 @@ var clickEvent = (function() {
     return 'click';
 })();
 
-function replaceParam(key, value) {
+function replaceCurrentURLParam(key, value, path) {
   var params = window.location.search.substr(1).split('&');
   var found = false;
   for (var i = 0; i < params.length; i++) {
@@ -25,5 +26,5 @@ function replaceParam(key, value) {
   if (!found) {
       params.push(key + '=' + value);
   }
-  return window.location.pathname + '?' + params.join('&')
+  return (path || window.location.pathname) + '?' + params.join('&')
 }
