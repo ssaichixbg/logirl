@@ -1,7 +1,91 @@
 {% extends 'dress_base.html' %}
 
 {% block body %}
-<h3>
-  加入我们
-</h3>
+  <h4 class="border-bottom pb-2 mt-2 text-primary">
+    加入我们
+  </h4>
+
+  <p class="">
+    <a href="{% url 'home' %}" target="_blank">Lo娘百科</a> 是小仙女们熟知 <a href="https://lolibrary.org" target="_blank">Lolibray</a>
+    的中文版，数据与 Lolibray 共享，独立运营，未来将加入更多国牌的数据和更加可爱的功能。 (´・ω・｀)
+  </p>
+  <p>
+    Lo娘百科目前还在建设初期，由几位小可爱共同维护，包括:
+    {% for c in contributors %}
+    <br><a href="{{ c.1 }}" target="_blank">@{{ c.0 }}</a>
+    {% endfor %}
+  </p>
+  <p>
+    如果你是一位Lo娘(汉)，并拥有一技之长，或者想用爱心为 <a href="{% url 'home' %}" target="_blank">Lo娘百科</a> 发电，<br>
+    那么快来加入我们，一起来建设最可爱的Lolita百科吧！<br>
+  </p>
+  <hr>
+  <div>
+    <p>目前我们需要以下工作的小仙女（<del>的男朋友</del>）：</p>
+    <div>
+      <b class="text-primary">数据收集</b>
+      <ul>
+        <li>整理国牌店铺信息</li>
+        <li>核对国牌Lo裙信息</li>
+      </ul>
+    </div>
+    <div>
+      <b class="text-primary">前端开发</b>
+      <br>如果你想学习(或熟悉)以下之一：
+      <ul>
+        <li>Web前端：Bootstrap 4 + jQuery</li>
+        <li>微信小程序</li>
+        <li>任何你想做的</li>
+      </ul>
+    </div>
+    <div>
+      <b class="text-primary">Python后端开发</b>
+      <br>如果你想学习(或熟悉)以下之一：
+      <ul>
+        <li>Django框架、PostgreSQL数据库</li>
+        <li>ElasticSearch开源搜索引擎</li>
+        <li>DevOps系统维护</li>
+        <li>任何你想做的</li>
+      </ul>
+    </div>
+    <div>
+      <b class="text-primary">算法开发</b>
+      <ul>
+        <li>自然语言处理，半结构化数据信息提取</li>
+        <li>Deep Learning，图像分类</li>
+        <li>任何你想做的</li>
+      </ul>
+    </div>
+    <p>
+      想要加入的小仙女，请填写下面的问卷喔～
+    </p>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" id="pills-wjx-tab" data-toggle="tab" href="#pills-wjx" role="tab" aria-controls="pills-wjx" aria-selected="false">国内链接</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-google-tab" data-toggle="tab" href="#pills-google" role="tab" aria-controls="pills-google" aria-selected="false">Google链接</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade " id="pills-wjx" role="tabpanel" aria-labelledby="pills-wjx-tab">
+        <script type="text/javascript" src="http://www.wenjuan.com/iframe/5a8d0021a320fc979d6f4e7e/"></script>
+      </div>
+      <div class="tab-pane fade" id="pills-google" role="tabpanel" aria-labelledby="pills-google-tab">
+        <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLScCqZpMaiMjWt3ySbzeNErQ4uj1KpLDngeFewlihr4Io5Acpg/viewform?embedded=true"
+          width="100%"  height="2000px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<script>
+  $(function () {
+    $('#pills-tab a').on('click', function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+  });
+</script>
 {% endblock %}

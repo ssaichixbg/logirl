@@ -170,6 +170,13 @@ class AboutView(BaseView):
 
     template_name = 'join_us.html'
 
+    @property
+    def contributors(self):
+        return (
+            ('ss爱吃小饼干', 'https://weibo.com/u/5997074507'),
+           # ('笤箫箫-Houki', 'https://weibo.com/u/3592776997'),
+           # ('夏添·', 'https://weibo.com/u/5750799054')
+        )
 
 class DonationView(BaseView):
 
