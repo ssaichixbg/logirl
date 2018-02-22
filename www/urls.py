@@ -21,16 +21,20 @@ from .admin import admin_site
 
 import dress.views
 
+url_bind = lambda *args: url(args[0], args[1].as_view(), name=args[1].view_name)
+
 urlpatterns = [
     url(r'^admin/', admin_site.urls),
 
-    url(r'^about', dress.views.AboutView.as_view(), name=dress.views.AboutView.view_name),
-    url(r'^item', dress.views.ItemDetail.as_view(), name=dress.views.ItemDetail.view_name),
-    url(r'^donation', dress.views.DonationView.as_view(), name=dress.views.DonationView.view_name),
-    url(r'^brand/', dress.views.BrandListView.as_view(), name=dress.views.BrandListView.view_name),
-    url(r'^brand/type/(?P<brand_type>d+)', dress.views.BrandListView.as_view(), name=dress.views.BrandListView.view_name),
-    url(r'^search$', dress.views.SearchResultView.as_view(), name=dress.views.SearchResultView.view_name),
-    url(r'^$', dress.views.HomeView.as_view(), name=dress.views.HomeView.view_name),
+    url_bind(r'^about$', dress.views.AboutView),
+    url_bind(r'^donation$', dress.views.DonationView),
+    url_bind(r'^contributor$', dress.views.ContributorView),
+
+    url_bind(r'^item', dress.views.ItemDetail),
+    url_bind(r'^brand/', dress.views.BrandListView),
+    url_bind(r'^brand/type/(?P<brand_type>d+)', dress.views.BrandListView),
+    url_bind(r'^search$', dress.views.SearchResultView),
+    url_bind(r'^$', dress.views.HomeView),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
