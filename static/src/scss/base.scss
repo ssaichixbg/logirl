@@ -17,7 +17,7 @@
 @include media-breakpoint-down(lg) {
   .item {
     .img-thumbnail {
-      height: 220px !important;
+      max-height: 220px !important;
     }
   }
 }
@@ -37,6 +37,7 @@
 
 .item {
   .img-thumbnail {
-    height: 260px;
+    max-height: 260px;
+    min-width: 120px;
   }
 }
