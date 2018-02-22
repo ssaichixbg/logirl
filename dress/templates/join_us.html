@@ -10,12 +10,7 @@
     的中文版，数据与 Lolibray 共享，独立运营，未来将加入更多国牌的数据和更加可爱的功能。 (´・ω・｀)
   </p>
   <p>
-    Lo娘百科目前还在建设初期，由几位小可爱共同维护，包括:
-    {% for c in contributors %}
-    <br><a href="{{ c.1 }}" target="_blank">@{{ c.0 }}</a>
-    {% endfor %}
-  </p>
-  <p>
+    Lo娘百科目前还在建设初期，由<a href="{% url 'contributor' %}">几位小可爱</a>共同维护。<br>
     如果你是一位Lo娘(汉)，并拥有一技之长，或者想用爱心为 <a href="{% url 'home' %}" target="_blank">Lo娘百科</a> 发电，<br>
     那么快来加入我们，一起来建设最可爱的Lolita百科吧！<br>
   </p>
@@ -27,6 +22,13 @@
       <ul>
         <li>整理国牌店铺信息</li>
         <li>核对国牌Lo裙信息</li>
+      </ul>
+    </div>
+    <div>
+      <b class="text-primary">UI／UX设计</b>
+      <ul>
+        <li>有一定美术基础</li>
+        <li>设计网站素材、交互</li>
       </ul>
     </div>
     <div>
