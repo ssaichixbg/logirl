@@ -1,5 +1,7 @@
 <nav class="nav nav-pills flex-column position-sticky">
   {% for nav in nav_views %}
-  <a class="nav-link {% if nav.view_name == view_name %}active{% endif %}" href="{% url nav.view_name %}">{{ nav.nav_title }}</a>
+  <a class="nav-link {% if nav.view_name == view_name %}active{% endif %}" href="{% url nav.view_name %}">
+    <i class="iconfont mr-1 ">{{ nav.nav_icon_font | safe }}</i>{{ nav.nav_title }}
+  </a>
 {% endfor %}
 </nav>

@@ -1,0 +1,17 @@
+{% extends 'dress_base.html' %}
+
+{% block body %}
+<h4 class="border-bottom pb-2 mt-2 text-primary">贡献小天使</h4>
+
+<h5 class="">网站</h5>
+<p>
+{% for c in website_contributors %}
+  <a href="{{ c.1 }}" target="_blank">@{{ c.0 }}</a>
+{% endfor %}
+</p>
+
+<h5 class="">数据收集</h5>
+
+<h5 class="">感谢</h5>
+<a href="https://weibo.com/bobozhua">@机智的爪bobo</a> 提供小Lo娘表情包
+{% endblock %}

@@ -17,10 +17,11 @@ class BaseView(TemplateView):
 
     nav_title = ''
     view_name = ''
+    nav_icon_font = ''
 
     @property
     def nav_views(self):
-        return [HomeView, BrandListView, AboutView, DonationView, ]
+        return [HomeView, BrandListView, AboutView, ContributorView, DonationView, ]
 
     @property
     def meta(self):
@@ -97,6 +98,7 @@ class HomeView(SearchResultView):
 
     nav_title = '主页'
     view_name = 'home'
+    nav_icon_font = '&#xe649;'
 
     template_name = 'search.html'
 
@@ -114,6 +116,7 @@ class BrandListView(BaseView):
 
     nav_title = 'Lo牌列表'
     view_name = 'brand_list'
+    nav_icon_font = '&#xe604;'
 
     template_name = 'brands_list.html'
 
@@ -167,20 +170,30 @@ class AboutView(BaseView):
 
     nav_title = '加入我们'
     view_name = 'about'
+    nav_icon_font = '&#xe7b2;'
 
     template_name = 'join_us.html'
-
-    @property
-    def contributors(self):
-        return (
-            ('ss爱吃小饼干', 'https://weibo.com/u/5997074507'),
-           # ('笤箫箫-Houki', 'https://weibo.com/u/3592776997'),
-           # ('夏添·', 'https://weibo.com/u/5750799054')
-        )
 
 class DonationView(BaseView):
 
     nav_title = '投喂'
     view_name = 'donation'
+    nav_icon_font = '&#xe65a;'
 
     template_name = 'donation.html'
+
+class ContributorView(BaseView):
+
+    nav_title = '贡献小天使'
+    view_name = 'contributor'
+
+    template_name = 'contributor.html'
+    nav_icon_font = '&#xe62e;'
+
+    @property
+    def website_contributors(self):
+        return (
+            ('ss爱吃小饼干', 'https://weibo.com/u/5997074507'),
+            # ('笤箫箫-Houki', 'https://weibo.com/u/3592776997'),
+            # ('夏添·', 'https://weibo.com/u/5750799054')
+        )
