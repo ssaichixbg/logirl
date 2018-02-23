@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 
 </div>
 <nav class="container header-logo">
-  <a href="{% url 'home' %}"><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=293710416,2115331919&fm=27&gp=0.jpg" class="rounded mx-auto d-block h-100" alt="logo">
+  <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" class="rounded mx-auto d-block h-100 logo" alt="logo">
   </a>
 </nav>
 <div class="container main">
