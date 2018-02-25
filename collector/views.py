@@ -10,7 +10,7 @@ from .models import *
 
 @csrf_exempt
 def receive_shell_item(request):
-    data = json.loads(request.body)
+    data = json.loads(request.body.decode('utf-8'))
 
     shell_item, created = ShellData.objects.all().get_or_create(ref_url=data['url'])
 
