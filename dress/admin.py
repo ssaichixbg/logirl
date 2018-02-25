@@ -28,22 +28,22 @@ class ColorAdmin(admin.ModelAdmin):
     pass
 
 
-class ItemImageInline(admin.TabularInline):
-    model = ItemImage
-    extra = 1
-
-
-@admin.register(Item, site=admin_site)
-class ItemAdmin(admin.ModelAdmin):
-    list_display = ('display_name', 'type', 'year', 'month', 'url', 'price', 'price_currency', 'size')
-    inlines = (ItemImageInline, )
-
-
-@admin.register(CustomerImage, site=admin_site)
-class CustomerImageAdmin(admin.ModelAdmin):
-    list_display = ('dress', 'image', )
-
-
-@admin.register(ItemImage, site=admin_site)
-class ItemImageAdmin(admin.ModelAdmin):
-    list_display = ('dress', 'image', )
+# class ItemImageInline(admin.TabularInline):
+#     model = ItemImage
+#     extra = 1
+#
+#
+# @admin.register(Item, site=admin_site)
+# class ItemAdmin(admin.ModelAdmin):
+#     list_display = ('display_name', 'type', 'year', 'month', 'url', 'price', 'price_currency', 'size')
+#     inlines = (ItemImageInline, )
+#
+#
+# @admin.register(CustomerImage, site=admin_site)
+# class CustomerImageAdmin(admin.ModelAdmin):
+#     list_display = ('dress', 'image', )
+#
+#
+# @admin.register(ItemImage, site=admin_site)
+# class ItemImageAdmin(admin.ModelAdmin):
+#     list_display = ('dress', 'image', )
