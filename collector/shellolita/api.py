@@ -35,6 +35,8 @@ class Shellolita:
 
         self.EOF = not soup.select_one('.nav-previous')
 
+        self.current_page += 1
+
 
     def get_item_detail(self, url):
         result = get_page(url)
@@ -42,7 +44,7 @@ class Shellolita:
         if not soup.select_one('.tag-links'):
             return
 
-        title = soup.select_one('.entry-header').get_text()
+        title = soup.select_one('.entry-title').get_text()
         cats = [a.get_text() for a in soup.select_one('.cat-links').select('a')]
         tags = [a.get_text() for a in soup.select_one('.tag-links').select('a')]
         content = soup.select_one('.entry-content')

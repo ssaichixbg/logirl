@@ -1,3 +1,5 @@
+import sys
+
 import json
 import urllib.request
 
@@ -18,4 +20,4 @@ def fetch(host, start=0):
 
 
 if __name__ == '__main__':
-    fetch('http://127.0.0.1:8002')
+    fetch(sys.argv[1])
