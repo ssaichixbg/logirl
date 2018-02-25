@@ -7,3 +7,4 @@ django-db-geventpool
 uwsgi
 bs4
 selenium
+django-jet

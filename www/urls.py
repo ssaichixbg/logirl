@@ -25,6 +25,7 @@ url_bind = lambda *args: url(args[0], args[1].as_view(), name=args[1].view_name)
 
 urlpatterns = [
     url(r'^admin/', admin_site.urls),
+    url(r'^jet/', include('jet.urls', 'jet')),
 
     url_bind(r'^about$', dress.views.AboutView),
     url_bind(r'^donation$', dress.views.DonationView),
