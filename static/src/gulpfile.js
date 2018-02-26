@@ -47,10 +47,6 @@ gulp.task('copy-minify-js', function () {
 });
 
 
-gulp.task('collectstatic', shell.task([
-    'python ../../manage.py collectstatic --noinput'
-]));
-
 gulp.task('default',function() {
     gulp.run('styles');
     gulp.run('copy-js');
@@ -61,5 +57,4 @@ gulp.task('default',function() {
 gulp.task('prod', function () {
     gulp.run('styles');
     gulp.run('copy-minify-js');
-    gulp.run('collectstatic');
 });
