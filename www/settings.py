@@ -142,3 +142,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 
 from .local_settings import *
+
+JET_DEFAULT_THEME = 'light-violet'
