@@ -17,7 +17,7 @@ def get_shell_item(request):
         data = unpic[0].content
         soup = bs4.BeautifulSoup(data, 'html.parser')
         imgs = [img.attrs['src'] for img in soup.select('img')]
-        imgs = ['-'.join(img.split('.')[0].split('-')[:-1]) + '.' + img.split('.')[1] for img in imgs if 'upload' in img]
+        imgs = ['-'.join('.'.join(img.split('.')[:-1]).split('-')[:-1]) + '.' + img.split('.')[-1] for img in imgs if 'upload' in img]
         return JsonResponse({
             'imgs': imgs,
             'ref_url': unpic[0].ref_url
