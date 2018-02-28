@@ -15,12 +15,13 @@ def get_page(url):
 def sp(data):
     return bs4.BeautifulSoup(data, 'html.parser')
 
+
 class Shellolita:
     URLs = {
         'page': 'http://www.shellolita.com/?paged=%d'
     }
-    def __init__(self):
-        self.current_page = 0
+    def __init__(self, page = 0):
+        self.current_page = page
         self.EOF = False
 
         self.item_list = []
@@ -36,7 +37,6 @@ class Shellolita:
         self.EOF = not soup.select_one('.nav-previous')
 
         self.current_page += 1
-
 
     def get_item_detail(self, url):
         result = get_page(url)
@@ -55,6 +55,9 @@ class Shellolita:
         for img in content.select('img'):
             src = img.attrs['src']
             imgs.append(src)
+            if 'com' not in src:
+                img.decompose()
+                continue
             img.attrs['src'] = src.split('.com')[1]
 
         return {

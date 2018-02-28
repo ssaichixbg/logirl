@@ -9,4 +9,4 @@ from .models import *
 # Register your models here.
 @admin.register(ShellData, site=admin_site)
 class ShellDataAdmin(admin.ModelAdmin):
-    list_display = ('title', 'ref_url')
+    list_display = ('title', 'ref_url', 'stage', )
