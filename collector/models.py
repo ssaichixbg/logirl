@@ -18,7 +18,7 @@ class RawData(models.Model):
 class ShellData(RawData):
     title = models.CharField(max_length=200, blank=True, null=True)
     content = models.TextField(blank=True, null=True)
-    tags = ArrayField(models.CharField(max_length=30, blank=True), blank=True, null=True)
+    tags = ArrayField(models.CharField(max_length=60, blank=True), blank=True, null=True)
     brand = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
