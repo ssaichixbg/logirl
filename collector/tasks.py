@@ -4,6 +4,7 @@ import urllib.request
 import urllib.parse
 import requests
 import io
+import traceback
 
 import oss2
 
@@ -39,6 +40,7 @@ def fetch_imgs(host, key_id, key_sec):
                     'Referer': ref_url,
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.167 Safari/537.36'
                 })
+            print(img_url)
             if not img.ok and not img.status_code == 404:
                 input('error')
             f.write(img.content)
@@ -55,6 +57,14 @@ def fetch_imgs(host, key_id, key_sec):
 
         item = json.loads(urllib.request.urlopen(host + '/_collector/shell/item').read())
 
+    return True
+
 if __name__ == '__main__':
     #fetch(sys.argv[1])
-    fetch_imgs(sys.argv[1], sys.argv[2], sys.argv[3])
+    suc = False
+    while not suc:
+        try:
+            suc = fetch_imgs(sys.argv[1], sys.argv[2], sys.argv[3])
+        except Exception as e:
+            traceback.print_exc()
+    print('Finished!')
