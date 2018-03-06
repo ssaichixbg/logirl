@@ -9,21 +9,24 @@ from dress.migration_utils import import_csv, reverse_csv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-csv_file = os.path.join(BASE_DIR, '0002_auto_20180307_0640.color.csv')
-
+color_csv_file = os.path.join(BASE_DIR, '0002_auto_20180307_0640.color.csv')
+feature_csv_file = os.path.join(BASE_DIR, '0002_auto_20180307_0640.feature.csv')
 
 def forwards(apps, schema_editor):
     if schema_editor.connection.alias != 'default':
         return
     # Your migration code goes here
-    import_csv(apps, csv_file, 'Color')
+    import_csv(apps, color_csv_file, 'Color')
+    import_csv(apps, feature_csv_file, 'Feature')
+
 
 
 def reverse(apps, schema_editor):
     if schema_editor.connection.alias != 'default':
         return
     # Your migration code goes here
-    reverse_csv(apps, csv_file, 'Color')
+    reverse_csv(apps, color_csv_file, 'Color')
+    reverse_csv(apps, feature_csv_file, 'Feature')
 
 class Migration(migrations.Migration):
 
@@ -40,7 +43,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='color',
             name='english_name',
-            field=models.CharField(blank=True, max_length=100, null=True),
+            field=models.CharField(blank=True, max_length=100, null=True, db_index=True),
         ),
         migrations.AddField(
             model_name='color',
@@ -55,7 +58,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='feature',
             name='english_name',
-            field=models.CharField(blank=True, max_length=100, null=True),
+            field=models.CharField(blank=True, max_length=100, null=True, db_index=True),
         ),
         migrations.AddField(
             model_name='feature',
@@ -70,7 +73,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='tag',
             name='english_name',
-            field=models.CharField(blank=True, max_length=100, null=True),
+            field=models.CharField(blank=True, max_length=100, null=True, db_index=True),
         ),
         migrations.AddField(
             model_name='tag',

@@ -61,7 +61,7 @@ AttributeType = (
 )
 class Tag(DressBaseModel):
     display_name = models.CharField(max_length=100)
-    english_name = models.CharField(max_length=100, blank=True, null=True)
+    english_name = models.CharField(max_length=100, blank=True, null=True, db_index=True)
     external_id = models.CharField(max_length=100, blank=True, null=True)
     attr_type = models.IntegerField(choices=AttributeType, default=0)
 
@@ -76,13 +76,13 @@ class Tag(DressBaseModel):
 
 class Feature(DressBaseModel):
     display_name = models.CharField(max_length=100)
-    english_name = models.CharField(max_length=100, blank=True, null=True)
+    english_name = models.CharField(max_length=100, blank=True, null=True, db_index=True)
     external_id = models.CharField(max_length=100, blank=True, null=True)
     attr_type = models.IntegerField(choices=AttributeType, default=0)
 
     class Meta:
-        verbose_name = '特点'
-        verbose_name_plural = '特点'
+        verbose_name = '版型'
+        verbose_name_plural = '版型'
 
     @staticmethod
     def get_searchbar_all():
@@ -91,7 +91,7 @@ class Feature(DressBaseModel):
 
 class Color(DressBaseModel):
     display_name = models.CharField(max_length=100)
-    english_name = models.CharField(max_length=100, blank=True, null=True)
+    english_name = models.CharField(max_length=100, blank=True, null=True, db_index=True)
     external_id = models.CharField(max_length=100, blank=True, null=True)
     attr_type = models.IntegerField(choices=AttributeType, default=0)
 
