@@ -15,17 +15,17 @@ class BrandAdmin(admin.ModelAdmin):
 
 @admin.register(Tag, site=admin_site)
 class TagAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('display_name', 'english_name', 'external_id', 'attr_type', )
 
 
 @admin.register(Feature, site=admin_site)
 class FeaturedAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('display_name', 'english_name', 'external_id', 'attr_type',)
 
 
 @admin.register(Color, site=admin_site)
 class ColorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('display_name', 'english_name', 'external_id', 'attr_type', )
 
 
 # class ItemImageInline(admin.TabularInline):

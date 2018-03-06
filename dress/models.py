@@ -54,8 +54,16 @@ class Brand(DressBaseModel):
         return sorted(list(Brand.objects.all().filter(brand_type=brand_type)), key=lambda b: b.item_count)
 
 
+AttributeType = (
+    (0, 'lolib basic'),
+    (1, 'lolib extended'),
+
+)
 class Tag(DressBaseModel):
     display_name = models.CharField(max_length=100)
+    english_name = models.CharField(max_length=100, blank=True, null=True)
+    external_id = models.CharField(max_length=100, blank=True, null=True)
+    attr_type = models.IntegerField(choices=AttributeType, default=0)
 
     class Meta:
         verbose_name = '标签'
@@ -63,11 +71,14 @@ class Tag(DressBaseModel):
 
     @staticmethod
     def get_searchbar_all():
-        return Color.objects.all().order_by('display_name')
+        return Color.objects.all().filter(attr_type=0).order_by('display_name')
 
 
 class Feature(DressBaseModel):
     display_name = models.CharField(max_length=100)
+    english_name = models.CharField(max_length=100, blank=True, null=True)
+    external_id = models.CharField(max_length=100, blank=True, null=True)
+    attr_type = models.IntegerField(choices=AttributeType, default=0)
 
     class Meta:
         verbose_name = '特点'
@@ -75,11 +86,15 @@ class Feature(DressBaseModel):
 
     @staticmethod
     def get_searchbar_all():
-        return Feature.objects.all().order_by('display_name')
+        return Feature.objects.all().filter(attr_type=0).order_by('display_name')
 
 
 class Color(DressBaseModel):
     display_name = models.CharField(max_length=100)
+    english_name = models.CharField(max_length=100, blank=True, null=True)
+    external_id = models.CharField(max_length=100, blank=True, null=True)
+    attr_type = models.IntegerField(choices=AttributeType, default=0)
+
     rgb = models.CharField(max_length=30, blank=True, null=True)
 
     class Meta:
@@ -88,7 +103,7 @@ class Color(DressBaseModel):
 
     @staticmethod
     def get_searchbar_all():
-        return Color.objects.all().order_by('display_name')
+        return Color.objects.all().filter(attr_type=0).order_by('display_name')
 
 
 ItemType = (
