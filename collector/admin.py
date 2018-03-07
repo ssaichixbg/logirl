@@ -10,3 +10,5 @@ from .models import *
 @admin.register(ShellData, site=admin_site)
 class ShellDataAdmin(admin.ModelAdmin):
     list_display = ('title', 'ref_url', 'stage', )
+    list_filter = ('stage', )
+    search_fields = ('title', 'ref_url')
