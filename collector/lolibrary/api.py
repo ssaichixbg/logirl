@@ -41,7 +41,7 @@ class Lolibrary:
         return urlopen(req).read()
 
     def get_json(self, url):
-        return json.loads(self.get_page(url))
+        return json.loads(self.get_page(url).decode('UTF-8'))
 
     def get_list(self, entity, kw=None, page=None, auto_page=False):
         if kw:
