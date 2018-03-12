@@ -11,21 +11,24 @@ from .models import *
 @admin.register(Brand, site=admin_site)
 class BrandAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'abbr', 'brand_type',)
-
+    list_filter = ('external_src',)
 
 @admin.register(Tag, site=admin_site)
 class TagAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'english_name', 'external_id', 'attr_type', )
+    list_filter = ('attr_type','external_src',)
 
 
 @admin.register(Feature, site=admin_site)
 class FeaturedAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'english_name', 'external_id', 'attr_type',)
+    list_filter = ('attr_type','external_src',)
 
 
 @admin.register(Color, site=admin_site)
 class ColorAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'english_name', 'external_id', 'attr_type', )
+    list_filter = ('attr_type', 'external_src',)
 
 
 # class ItemImageInline(admin.TabularInline):

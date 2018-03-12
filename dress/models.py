@@ -14,9 +14,12 @@ class DressBaseModel(models.Model):
     def __str__(self):
         return self.__getattribute__('display_name')
 
+ExternalSource = (
+    (1, u'lolibrary',),
+)
 
 BrandFlags = (
-
+    (10, u'lolib',),
 )
 
 BrandTypes = (
@@ -36,10 +39,13 @@ class Brand(DressBaseModel):
     abbr = models.CharField(max_length=200, null=True, blank=True, verbose_name='简称')
     weibo = models.URLField(null=True, blank=True, verbose_name='微博')
     twitter = models.URLField(null=True, blank=True, verbose_name='Twitter')
+    external_id = models.CharField(max_length=100, null=True, blank=True)
+    external_src = models.IntegerField(choices=ExternalSource, null=True, blank=True)
 
     class Meta:
         verbose_name = '品牌'
         verbose_name_plural = '品牌'
+        unique_together = ('external_id', 'external_src')
 
     @property
     def item_count(self):
@@ -57,17 +63,19 @@ class Brand(DressBaseModel):
 AttributeType = (
     (0, 'lolib basic'),
     (1, 'lolib extended'),
-
+    (2, 'lolib new')
 )
 class Tag(DressBaseModel):
     display_name = models.CharField(max_length=100)
     english_name = models.CharField(max_length=100, blank=True, null=True, db_index=True)
     external_id = models.CharField(max_length=100, blank=True, null=True)
+    external_src = models.IntegerField(choices=ExternalSource, null=True, blank=True)
     attr_type = models.IntegerField(choices=AttributeType, default=0)
 
     class Meta:
         verbose_name = '标签'
         verbose_name_plural = '标签'
+        unique_together = ('external_src', 'external_id',)
 
     @staticmethod
     def get_searchbar_all():
@@ -78,11 +86,13 @@ class Feature(DressBaseModel):
     display_name = models.CharField(max_length=100)
     english_name = models.CharField(max_length=100, blank=True, null=True, db_index=True)
     external_id = models.CharField(max_length=100, blank=True, null=True)
+    external_src = models.IntegerField(choices=ExternalSource, null=True, blank=True)
     attr_type = models.IntegerField(choices=AttributeType, default=0)
 
     class Meta:
         verbose_name = '版型'
         verbose_name_plural = '版型'
+        unique_together = ('external_src', 'external_id',)
 
     @staticmethod
     def get_searchbar_all():
@@ -93,6 +103,7 @@ class Color(DressBaseModel):
     display_name = models.CharField(max_length=100)
     english_name = models.CharField(max_length=100, blank=True, null=True, db_index=True)
     external_id = models.CharField(max_length=100, blank=True, null=True)
+    external_src = models.IntegerField(choices=ExternalSource, null=True, blank=True)
     attr_type = models.IntegerField(choices=AttributeType, default=0)
 
     rgb = models.CharField(max_length=30, blank=True, null=True)
@@ -100,6 +111,7 @@ class Color(DressBaseModel):
     class Meta:
         verbose_name = '颜色'
         verbose_name_plural = '颜色'
+        unique_together = ('external_src', 'external_id',)
 
     @staticmethod
     def get_searchbar_all():
