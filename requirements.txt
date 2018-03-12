@@ -9,3 +9,4 @@ uwsgi
 bs4
 selenium
 django-jet
+requests
